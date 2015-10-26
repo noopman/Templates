@@ -1,0 +1,2 @@
+# Templates
+Some ARM Templates
