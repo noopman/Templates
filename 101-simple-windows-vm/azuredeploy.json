@@ -69,7 +69,7 @@
     "vmStorageAccountContainerName": "vhds",
     "vmName": "TestWindowsVM",
     "vmSize": "Standard_A2",
-    "virtualNetworkName": "MyVNET",
+    "virtualNetworkName": "TestVNET",
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
     "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]",
     "dataDisk1VhdName": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('vmName'),'dataDisk1.vhd')]"
@@ -179,12 +179,12 @@
           "dataDisks": [
             {
               "name": "datadisk1",
-              "diskSizeDB": "[parameters('sizeOfEachDataDiskInGB')]",
+              "diskSizeGB": "[parameters('sizeOfEachDataDiskInGB')]",
               "lun": 0,
               "vhd": {
                 "uri": "[variables('dataDisk1VhdName')]"
               },
-              "creationOption": "Empty"
+              "createOption": "Empty"
             }
           ]
         },
